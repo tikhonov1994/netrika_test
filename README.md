@@ -6,5 +6,5 @@
 
 
 ## Тестировние
-###### Информация по тестированию: ![Build Status](https://github.com/tikhonov1994/fun-box_test_task/actions/workflows/tests.yml/badge.svg)
+###### Информация по тестированию: ![Build Status](https://github.com/tikhonov1994/netrika_test/actions/workflows/main.yml/badge.svg)
 * Запустите команду: `python manage.py test api`
