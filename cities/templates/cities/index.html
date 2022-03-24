@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{% if not top_cities %}
+
+<h4 class="text-center mb-5">
+    На данный момент нет ни одного города!
+</h4>
+
+{% else %}
+<h4 class="text-center mb-5">
+    10 городов с наибольшим населением
+</h4>
+{% for city in top_cities %}
+<p class="text-center">
+    {{ city }}
+</p>
+{% endfor %}
+
+{% endif %}
+
+
+{% if not page_obj %}
+<h4 class="text-center mb-5">
+    На данный момент нет ни одного жителя!
+</h4>
+{% else %}
+<table class="table table-bordered" role="grid">
+    <tr class="header">
+    <th style="width:60%;">Ф.И.О.</th>
+    <th style="width:40%;">Город</th>
+    </tr>
+    {% for cityzen in page_obj %}
+    <tr>
+    <td>{{ cityzen.name }}</td>
+    <td>
+        <div class="input-group mb-3" data-id="{{cityzen.city}}">
+            <a class="btn btn-sm btn-default float-right" href="{% url 'cities:city' cityzen.city %}">{{cityzen.city}}</a>
+      </div>
+      </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% include 'paginator.html' %}
+
+
+{% endblock body %}
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ city }}{% endblock title %}
+
+{% block body %}
+
+<h4 class="text-center mb-5">
+    {{ city }}
+</h4>
+
+
+{% if not page_obj %}
+<h4 class="text-center mb-5">
+    На данный момент нет ни одного жителя!
+</h4>
+{% else %}
+<h5 class="text-left">
+    Жители города {{ city }}:
+</h5>
+{% for cityzen in page_obj %}
+    <p> {{ cityzen.name }} </p>
+{% endfor %}
+
+{% endif %}
+{% include 'paginator.html' %}
+{% endblock body %}
