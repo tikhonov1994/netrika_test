@@ -1,6 +1,7 @@
 from django.test import Client, TestCase
-from cities.models import Citizen, City
 from django.urls import reverse
+
+from cities.models import Citizen, City
 
 
 class CitizenViewTests(TestCase):
